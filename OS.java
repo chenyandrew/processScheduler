@@ -24,23 +24,30 @@ public class OS {
         try(Scanner sc = new Scanner(input)) {
             int i = 0;
         	PCB tempPCB = new PCB();
-            while (sc.hasNextLine()) {
-            	
+        	int seq = 0;
+            while (sc.hasNext()) {
+            	seq = 0;
+            	String seqString = "";
             	//make new PCB, store stuff from file into this PCB
-            	tempPCB = new PCB();
-               // tempPCB.ID = Integer.parseInt(sc.next());
-//                tempPCB.arrivalOrder = Integer.parseInt(sc.next());
-//                tempPCB.priority = Integer.parseInt(sc.next());
-            	tempPCB.ID = sc.nextInt();
-            	tempPCB.arrivalOrder = sc.nextInt();
-            	tempPCB.priority = sc.nextInt();
             	
-                
-                //in file, there is a list of integers, store these into list of ints for IO/CPU burst times
-//                while(sc.hasNextInt())
-//                {
-//                	tempPCB.burstSeq.add(sc.nextInt());
-//                }
+            	//SHIT DON'T WORK RN
+            	tempPCB = new PCB();
+                tempPCB.ID = Integer.parseInt(sc.next());
+                tempPCB.arrivalOrder = Integer.parseInt(sc.next());
+                tempPCB.priority = Integer.parseInt(sc.next());
+//            	tempPCB.ID = sc.nextInt();
+//            	tempPCB.arrivalOrder = sc.nextInt();
+//            	tempPCB.priority = sc.nextInt();
+            	
+            	//store next big int into some int seq, convert to string,
+            	//loop through string, storing digits into int array
+            	seq = sc.nextInt();
+            	seqString = String.valueOf(seq);
+            	for (int j = 0; j < seqString.length(); ++j)
+            	{
+            		tempPCB.burstSeq.add(Integer.valueOf(seqString.charAt(j)));
+            		//tempPCB.burstSeq.add(Integer.getInteger(seqString.indexOf(j)));
+            	}
                 
             }
         } catch (FileNotFoundException e) {
