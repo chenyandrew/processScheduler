@@ -25,9 +25,9 @@ public class PCB {
 	boolean terminatedState = false;
 	
 	double startTime, endTime, endOfFirstIOBurst = 0;
-	
+
     public void Print(){
-        System.out.println("You've reached the PCB class print function");
+        System.out.println(this.burstSeq);
     }
     
     public void setToNewState(){

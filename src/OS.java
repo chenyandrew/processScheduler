@@ -51,8 +51,6 @@ public class OS {
             		//tempPCB.burstSeq.add(Integer.getInteger(seqString.indexOf(j)));
                 }
                 initialPCBs.add(tempPCB);
-                System.out.println(tempPCB.burstSeq);
-
 
             }
         } catch (FileNotFoundException e) {
@@ -61,14 +59,15 @@ public class OS {
         //
         for (int j = 0; j < initialPCBs.size(); ++j)
         {
-            System.out.println(initialPCBs.get(j));
+            System.out.println(initialPCBs.size());
+            initialPCBs.get(j).Print();
         }
 
 
-        List<Integer> testList;
-        testList = rng(5);
-        for (int i:testList)
-            System.out.println(testList.get(i));
+        // List<Integer> testList;
+        // testList = rng(5);
+        // for (int i:testList)
+        //     System.out.println(testList.get(i));
 
         //System.out.println("The mean for this list is: " + mean(testList));
         //System.out.println("The standard deviation for this list is: " + stdev(testList));
@@ -76,6 +75,14 @@ public class OS {
         PCB newPCB = new PCB();
         newPCB.Print();
         System.out.println("test OS main function" );
+    }
+
+    public static void FirstComeFirstServe(){
+
+        for (int i = 0; i < initialPCBs.size(); i++){
+            
+        }
+
     }
 
     public static List<Integer> rng(int n)
