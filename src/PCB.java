@@ -24,10 +24,52 @@ public class PCB {
 	boolean waitingState = false;
 	boolean terminatedState = false;
 	
-	double startTime, endTime = 0;
+	double startTime, endTime, endOfFirstIOBurst = 0;
 	
     public void Print(){
         System.out.println("You've reached the PCB class print function");
     }
+    
+    public void setToNewState(){
+        newState = true;
+	readyState = false;
+	runningState = false;
+	waitingState = false;
+	terminatedState = false;
+    }
+    
+    public void setToReadyState(){
+        newState = false;
+	readyState = true;
+	runningState = false;
+	waitingState = false;
+	terminatedState = false;
+    }
+    
+    public void setToRunningState(){
+        newState = false;
+	readyState = false;
+	runningState = true;
+	waitingState = false;
+	terminatedState = false;
+    }
+    
+    public void setToWaitingState(){
+        newState = false;
+	readyState = false;
+	runningState = false;
+	waitingState = true;
+	terminatedState = false;
+    }
+    
+    
+    public void setToTerminatedState(){
+        newState = false;
+	readyState = false;
+	runningState = false;
+	waitingState = false;
+	terminatedState = true;
+    }
+    
 
 }
