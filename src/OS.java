@@ -8,10 +8,10 @@ public class OS {
     public boolean isCPUAvailable;
     // need to make processTable
     
-    public ArrayList<Process> New_Queue;
-    public ArrayList<Process> Ready_Queue;
-    public ArrayList<Process> Wait_Queue;
-    public ArrayList<Process> Terminated_Queue;
+    public ArrayList<PCB> New_Queue;
+    public ArrayList<PCB> Ready_Queue;
+    public ArrayList<PCB> Wait_Queue;
+    public ArrayList<PCB> Terminated_Queue;
 
     public static ArrayList<PCB> initialPCBs = new ArrayList<PCB>(); 
 
