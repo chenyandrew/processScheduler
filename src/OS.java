@@ -16,7 +16,7 @@ public class OS {
     public static void main(String[] args) {
 
         // open file for reading
-        File input = new File("D:\\Graduate School\\Fall 2018\\CSCI 6334 Advanced Operating Systems\\src\\input.txt");
+        File input = new File("C:\\Users\\Chen\\Documents\\processScheduler\\src\\input.txt");
         //
 
         // use scanner from java.util library to read through each line
@@ -24,9 +24,9 @@ public class OS {
         try(Scanner sc = new Scanner(input)) {
             int i = 0;
         	PCB tempPCB = new PCB();
-        	int seq = 0;
+
+        	String seq;
             while (sc.hasNext()) {
-            	seq = 0;
             	String seqString = "";
             	//make new PCB, store stuff from file into this PCB
             	
@@ -41,14 +41,17 @@ public class OS {
             	
             	//store next big int into some int seq, convert to string,
             	//loop through string, storing digits into int array
-            	seq = sc.nextInt();
+            	seq = sc.next();
             	seqString = String.valueOf(seq);
             	for (int j = 0; j < seqString.length(); ++j)
             	{
             		tempPCB.burstSeq.add(Integer.valueOf(seqString.charAt(j)));
             		//tempPCB.burstSeq.add(Integer.getInteger(seqString.indexOf(j)));
             	}
-                
+            	System.out.println(tempPCB.ID + " " + tempPCB.arrivalOrder + " " +tempPCB.priority + " " + tempPCB.burstSeq);
+
+
+
             }
         } catch (FileNotFoundException e) {
             // handle
