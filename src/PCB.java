@@ -29,15 +29,7 @@ public class PCB {
     public void Print(){
         System.out.println("You've reached the PCB class print function");
     }
-    
-    public void setToNewState(){
-        newState = true;
-	readyState = false;
-	runningState = false;
-	waitingState = false;
-	terminatedState = false;
-    }
-    
+
     public void setToReadyState(){
         newState = false;
 	readyState = true;
@@ -62,7 +54,6 @@ public class PCB {
 	terminatedState = false;
     }
     
-    
     public void setToTerminatedState(){
         newState = false;
 	readyState = false;
@@ -70,6 +61,4 @@ public class PCB {
 	waitingState = false;
 	terminatedState = true;
     }
-    
-
 }
