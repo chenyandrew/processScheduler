@@ -7,6 +7,7 @@ public class OS {
     public IODevice io;
     public boolean isCPUAvailable;
     // need to make processTable
+    
     public ArrayList<Process> New_Queue;
     public ArrayList<Process> Ready_Queue;
     public ArrayList<Process> Wait_Queue;
@@ -15,21 +16,39 @@ public class OS {
     public static void main(String[] args) {
 
         // open file for reading
-        File input = new File("C:\\Users\\Chen\\Documents\\fall2018\\operatingsystems - 6334\\processScheduler\\src\\input.txt");
+        File input = new File("D:\\Graduate School\\Fall 2018\\CSCI 6334 Advanced Operating Systems\\src\\input.txt");
         //
 
         // use scanner from java.util library to read through each line
         // it breaks up one line into 4 lines, it looks like it  splits the empty strings
         try(Scanner sc = new Scanner(input)) {
             int i = 0;
-            while (sc.hasNextLine()) {
-                String line = sc.next();
-                i += 1;
-
-                // use mod(4) to see check every 4th element of each line for the input of CPU/IO burst
-                if ((i%4) == 0) {
-                    System.out.println(line);
-                }
+        	PCB tempPCB = new PCB();
+        	int seq = 0;
+            while (sc.hasNext()) {
+            	seq = 0;
+            	String seqString = "";
+            	//make new PCB, store stuff from file into this PCB
+            	
+            	//SHIT DON'T WORK RN
+            	tempPCB = new PCB();
+                tempPCB.ID = Integer.parseInt(sc.next());
+                tempPCB.arrivalOrder = Integer.parseInt(sc.next());
+                tempPCB.priority = Integer.parseInt(sc.next());
+//            	tempPCB.ID = sc.nextInt();
+//            	tempPCB.arrivalOrder = sc.nextInt();
+//            	tempPCB.priority = sc.nextInt();
+            	
+            	//store next big int into some int seq, convert to string,
+            	//loop through string, storing digits into int array
+            	seq = sc.nextInt();
+            	seqString = String.valueOf(seq);
+            	for (int j = 0; j < seqString.length(); ++j)
+            	{
+            		tempPCB.burstSeq.add(Integer.valueOf(seqString.charAt(j)));
+            		//tempPCB.burstSeq.add(Integer.getInteger(seqString.indexOf(j)));
+            	}
+                
             }
         } catch (FileNotFoundException e) {
             // handle

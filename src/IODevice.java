@@ -12,6 +12,8 @@ public class IODevice {
 
     public String execute(int IO_burst){
         BusyOrNot = true;
+        for(int i =0; i < IO_burst;++i)
+        	BubbleSort();
         // call Bubble Sort() for IO_burst times and then return "ready"
         return "ready";
     }

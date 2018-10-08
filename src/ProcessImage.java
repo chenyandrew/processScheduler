@@ -10,6 +10,7 @@ public class ProcessImage {
     // initializing process
     public void Process(String process)
     {
+    	
         // set PCB_data, code, and other variables
         // set state as "NEW"
     }
