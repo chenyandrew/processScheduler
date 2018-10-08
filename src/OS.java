@@ -13,6 +13,8 @@ public class OS {
     public ArrayList<Process> Wait_Queue;
     public ArrayList<Process> Terminated_Queue;
 
+    public static ArrayList<PCB> initialPCBs = new ArrayList<PCB>(); 
+
     public static void main(String[] args) {
 
         // open file for reading
@@ -45,11 +47,11 @@ public class OS {
             	seqString = String.valueOf(seq);
             	for (int j = 0; j < seqString.length(); ++j)
             	{
-            		tempPCB.burstSeq.add(Integer.valueOf(seqString.charAt(j)));
+            		tempPCB.burstSeq.add((Character.getNumericValue(seqString.charAt(j))));
             		//tempPCB.burstSeq.add(Integer.getInteger(seqString.indexOf(j)));
-            	}
-            	System.out.println(tempPCB.ID + " " + tempPCB.arrivalOrder + " " +tempPCB.priority + " " + tempPCB.burstSeq);
-
+                }
+                initialPCBs.add(tempPCB);
+                System.out.println(tempPCB.burstSeq);
 
 
             }
@@ -57,6 +59,10 @@ public class OS {
             // handle
         }
         //
+        for (int j = 0; j < initialPCBs.size(); ++j)
+        {
+            System.out.println(initialPCBs.get(j));
+        }
 
 
         List<Integer> testList;

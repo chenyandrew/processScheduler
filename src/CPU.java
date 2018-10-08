@@ -1,4 +1,6 @@
 import javafx.util.*;
+import java.util.*;
+
 
 public class CPU {
 
@@ -38,7 +40,7 @@ public class CPU {
 
     }
 
-    public Boolean cpuBusyBoolean(){
+    public boolean cpuBusyBoolean(){
         return false;
     }
 
