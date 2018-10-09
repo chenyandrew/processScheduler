@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PCB {
+public class PCB implements Comparable<PCB> {
 	
 	//constructor
 	PCB()
@@ -17,7 +17,7 @@ public class PCB {
 	int arrivalOrder = 0;
 	int priority = 0;
 	List<Integer> burstSeq = new ArrayList<Integer>();
-	int programCounter = 0; //next instruction to ececute in burst seq
+	int programCounter = 0; //next instruction to excecute in burst seq
 	boolean newState = false;
 	boolean readyState = false;
 	boolean runningState = false;
@@ -61,4 +61,13 @@ public class PCB {
 	waitingState = false;
 	terminatedState = true;
     }
+    
+    public int compareTo(PCB comparePCB)
+    {
+    	int comparePriority = ((PCB) comparePCB).priority;
+    	
+    	return this.priority - comparePriority;
+    }
+
 }
+
