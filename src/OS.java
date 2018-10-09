@@ -113,6 +113,81 @@ public class OS {
         }
 
     }
+    
+     public static void RoundRobin(){
+        boolean allProcessTerminated = false;
+        quantum = cpu.timeslice; //timeslice from input
+        
+        if (New_Queue.isEmpty() == true && Ready_Queue.isEmpty() == true 
+                && Wait_Queue.isEmpty() == true){
+            allProcessTerminated = true;
+        }
+
+        while (allProcessTerminated == false){
+            
+            //
+            while (New_Queue.isEmpty() == false){
+                for(int i = 0; i < New_Queue.size(); i++){
+                    Ready_Queue.add(New_Queue.get(i));
+                    Ready_Queue.get(i).setToReadyState();
+                }
+                
+                New_Queue.clear(); //empty the new queue  
+            }
+            
+            //if nothing is running, pull the next item in the ready queue
+            if (Currently_Running.isEmpty() == true){
+                Currently_Running.add(Ready_Queue.get(0));
+                Currently_Running.setToRunningState();
+                Ready_Queue.remove(0);
+                //do something to make it run
+                
+                
+                
+                
+
+            }
+            
+            
+            
+            
+            
+            if (Ready_Queue.isEmpty() == false){
+                //remove the first process in the ready queue and run it
+                Ready_Queue.remove(0);
+            }
+        
+        }
+            //array to keep track of remaining burst time of processes
+            int remcpuBurstSequence = new int[burstSequence.size()];
+            for (int j = 0; j < burstSequence.size(); j = j + 2){
+                remcpuBurstSequence[j] = burstSequence[j];
+            }
+            
+            if (remcpuBurstSequence[i] > quantum){
+                for (int x = 0; x < quantum; x++){
+                    BubbleSort();
+                }
+                remcpuBurstSequence[i] = remcpuBurstSequence[i] - quantum;
+                setToReadyState();
+            }
+            if (remcpuBurstSequence[i] == quantum){
+                for (int x = 0; x < quantum; x++){
+                    BubbleSort();
+                }
+                remcpuBurstSequence[i] = remcpuBurstSequence[i] - quantum;
+                setToWaitingState();
+            }
+            if (remcpuBurstSequence[i] < quantum){
+                for (int x = 0; x < remcpuBurstSequence[i]; x++)
+                remcpuBurstSeqence[i] = 0;
+                setToWaitingState();
+                
+                
+        
+        }
+            
+        }
 
     public static List<Integer> rng(int n)
     {

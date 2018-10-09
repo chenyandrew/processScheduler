@@ -18,6 +18,7 @@ public class PCB implements Comparable<PCB> {
 	int priority = 0;
 	List<Integer> burstSeq = new ArrayList<Integer>();
 	int programCounter = 0; //next instruction to excecute in burst seq
+        boolean arrived = false;//b.w.h
 	boolean newState = false;
 	boolean readyState = false;
 	boolean runningState = false;
@@ -31,6 +32,11 @@ public class PCB implements Comparable<PCB> {
     }
 
     public void setToReadyState(){
+        if (!this.arrived){
+            this.arrived = true;
+            startTime = System.nanoTime(); //b.w.h
+        }
+        
         newState = false;
 	readyState = true;
 	runningState = false;
@@ -60,6 +66,8 @@ public class PCB implements Comparable<PCB> {
 	runningState = false;
 	waitingState = false;
 	terminatedState = true;
+        
+        endTime = System.nanoTime(); //b.w.h
     }
     
     public int compareTo(PCB comparePCB)
