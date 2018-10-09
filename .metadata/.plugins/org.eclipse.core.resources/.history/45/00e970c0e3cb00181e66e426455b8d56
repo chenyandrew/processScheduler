@@ -103,7 +103,11 @@ public class OS {
     	New_Queue.remove(0);
     	Ready_Queue.add(firstPCB);
     	priorityMax = Ready_Queue.get(0).priority;
-    
+    	
+    	while(!New_Queue.isEmpty())
+    	{
+    		
+    	}
     	
     }
     public static void FirstComeFirstServe(){

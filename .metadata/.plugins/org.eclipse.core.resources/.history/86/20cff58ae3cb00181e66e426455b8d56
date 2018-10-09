@@ -4,7 +4,7 @@ public class IODevice {
 
     public boolean BusyOrNot;
 
-    public IODevice(ArrayList<PCB> Wait_Queue){
+    public IODevice(ArrayList<Process> Wait_Queue){
 
     }
 

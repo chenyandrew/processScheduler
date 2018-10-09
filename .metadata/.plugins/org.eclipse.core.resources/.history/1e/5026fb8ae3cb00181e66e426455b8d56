@@ -14,12 +14,7 @@ public class CPU {
         cpuIsBusy = false;
     }
 
-    //default constructor
-    public CPU() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public Pair<Integer, String> execute(Process P)
+    public Pair<Integer, String> execute(Process P)
     {
         cpuIsBusy = true;
         // read the CPU burst number, say #, from the position PositionOfNextInstructionToExecute of P
