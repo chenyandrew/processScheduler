@@ -11,7 +11,7 @@ public class OS {
     public static ArrayList<PCB> Terminated_Queue = new ArrayList<PCB>();
     public static ArrayList<PCB> Currently_Running = new ArrayList<PCB>();//beto's code, remind him :)
     
-	public static CPU cpu = new CPU();
+	public CPU cpu = new CPU();
     public IODevice io = new IODevice(Wait_Queue);
     public boolean isCPUAvailable;
     // need to make processTable
@@ -88,17 +88,11 @@ public class OS {
 
     public static void priorityScheduler()
     {
-    	//notes by Frank on priority scheduler
-    	
-    	//int time, keep track of overall time
-    	//for(i in ready queue)
-    	//{ for(j in ready queue[i].burstseq[j])
-    	// 		bubblesort
-    	//		check if new queue has some arrival time == int time variable declared ^^
-    	//		if true -> store current PCB in waiting queue to bring out later
-    	// 					switch to higher priority
-    	//		else -> TO BE CONTINUED
-    	
+    	//Collections.sort(New_Queue);
+//    	for(int i = 0; i < New_Queue.size(); ++i)
+//    	{
+//    		System.out.println(New_Queue.get(i).priority);
+//    	}
     	
     	int priorityMax = 0;
     	PCB tempPCB = new PCB();
@@ -122,7 +116,7 @@ public class OS {
     
      public static void RoundRobin(){
         boolean allProcessTerminated = false;
-        int quantum = cpu.timeSlice; //timeslice from input
+        quantum = cpu.timeslice; //timeslice from input
         
         if (New_Queue.isEmpty() == true && Ready_Queue.isEmpty() == true 
                 && Wait_Queue.isEmpty() == true){
@@ -144,7 +138,7 @@ public class OS {
             //if nothing is running, pull the next item in the ready queue
             if (Currently_Running.isEmpty() == true){
                 Currently_Running.add(Ready_Queue.get(0));
-                Currently_Running.get(0).setToRunningState();
+                Currently_Running.setToRunningState();
                 Ready_Queue.remove(0);
                 //do something to make it run
                 
